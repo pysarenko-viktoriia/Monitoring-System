@@ -22,7 +22,7 @@ def require_float_or_int(value: float, label: str) -> float:
     return float(value)
 
 def require_correct_coordinates(list_of_coord: list[int | float]) -> tuple[float, float]:
-    '''Перевіряє, чи правильні координати.'''
+    """Перевіряє, чи правильні координати."""
     if not isinstance(list_of_coord, list):
         raise TypeError(f'Має бути введений список')
     if len(list_of_coord) != 2:
@@ -35,7 +35,7 @@ def require_correct_coordinates(list_of_coord: list[int | float]) -> tuple[float
     return coord_1, coord_2
 
 def require_correct_ph(ph: int | float) -> int | float:
-    '''Перевіряє, чи правильно вказаний ph.'''
+    """Перевіряє, чи правильно вказаний ph."""
     if not isinstance(ph, (int, float)):
         raise TypeError('pH має бути числом')
     if ph < 0 or ph > 14:
@@ -43,7 +43,7 @@ def require_correct_ph(ph: int | float) -> int | float:
     return ph
 
 def checking_type_of_location(type_of_location: str, name: str) -> str:
-    '''Перевіряє вказаний тип локації, чи віноситься він до list_of_locations'''
+    """Перевіряє вказаний тип локації, чи віноситься він до list_of_locations"""
     list_of_locations = ['парк', 'дорога', 'промзона']
     type_of_location = require_non_empty_str(type_of_location, 'Тип локації')
     if type_of_location not in list_of_locations:
@@ -51,7 +51,7 @@ def checking_type_of_location(type_of_location: str, name: str) -> str:
     return type_of_location
 
 def check_list_of_two_int(value, label: str) -> list[int]:
-    '''Перевірка, чи є зазначений список з двух чисел'''
+    """Перевірка, чи є зазначений список з двух чисел"""
     if not isinstance(value, list) or not all(isinstance(x, int) for x in value):
         raise TypeError(f'{label} має бути списком з цілих чисел')
     if len(value) != 2:
@@ -59,7 +59,7 @@ def check_list_of_two_int(value, label: str) -> list[int]:
     return value
 
 def checking_date(date: list[int]) -> list[int]:
-    '''Перевірка правильно вказаної дати: чи є числами, чи в діапазоні'''
+    """Перевірка правильно вказаної дати: чи є числами, чи в діапазоні"""
     date = check_list_of_two_int(date, 'Дата')
     day = date[0]
     month = date[1]
@@ -70,7 +70,7 @@ def checking_date(date: list[int]) -> list[int]:
     return [day, month]
 
 def checking_time(time: list[int]) -> list[int]:
-    '''Перевірка правильно вказаного часу: чи є числами, чи є в діапазоні'''
+    """Перевірка правильно вказаного часу: чи є числами, чи є в діапазоні"""
     time = check_list_of_two_int(time, 'Час')
     hour = time[0]
     minute = time[1]
