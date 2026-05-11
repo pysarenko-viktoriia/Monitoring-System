@@ -296,7 +296,6 @@ class MonitoringStation:
         else:
             trend = 'недостатньо даних для прогнозу'
             forecast = int(avg)
-        
         return {
             'sensor': sensor_type.__name__,
             'current_avg_qi': round(avg, 2),
