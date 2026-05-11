@@ -1,24 +1,24 @@
 def require_positive(value: float, label: str) -> float:
     """Перевіряє, що значення є додатним числом."""
     if not isinstance(value, (int, float)):
-        raise TypeError(f"{label} має бути числом")
+        raise TypeError(f'{label} має бути числом')
     if value < 0:
-        raise ValueError(f"{label} має бути додатним")
+        raise ValueError(f'{label} має бути додатним')
     return float(value)
 
 def require_non_empty_str(value: str, label: str) -> str:
     """Перевіряє, що значення є непорожнім рядком."""
     if not isinstance(value, str):
-        raise TypeError(f"{label} має бути рядком")
+        raise TypeError(f'{label} має бути рядком')
     cleaned = value.strip()
     if not cleaned:
-        raise ValueError(f"{label} не може бути порожнім")
+        raise ValueError(f'{label} не може бути порожнім')
     return cleaned
 
 def require_float_or_int(value: float, label: str) -> float:
     """Перевіряє, що значення є числом."""
     if not isinstance(value, (int, float)):
-        raise TypeError(f"{label} має бути числом")
+        raise TypeError(f'{label} має бути числом')
     return float(value)
 
 def require_correct_coordinates(list_of_coord: list[int | float]) -> tuple[float, float]:
