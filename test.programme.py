@@ -82,15 +82,12 @@ class TestMonitoringStation(unittest.TestCase):
         m1 = AirQuality(12.0, 20.0, 400.0, 20.0, [1, 1], [10, 0], self.loc)
         m2 = AirQuality(35.4, 50.0, 800.0, 50.0, [1, 1], [11, 0], self.loc)
         m3 = NoiseLevel(80.0, "Дорога", [1, 1], [11, 30], self.loc)
-        
         self.station.take_measurement(m1)
         self.station.take_measurement(m2)
         self.station.take_measurement(m3)
-
         avg_recent = self.station.average([2, 0], [12, 0])
         self.assertAlmostEqual(avg_recent['AirQuality'], 75.0, places=0)
         self.assertAlmostEqual(avg_recent['NoiseLevel'], 166.0, places=0)
-
         avg_all = self.station.average([3, 0], [12, 0])
         self.assertAlmostEqual(avg_all['AirQuality'], 75.0, places=0)
 
