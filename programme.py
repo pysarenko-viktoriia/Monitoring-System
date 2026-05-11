@@ -216,6 +216,7 @@ class Alert:
         '''Повідомлення про рівень тривоги на певній станції з усіма іншими атрибутами цього класу'''
         date_str = f"{self.date[0]:02d}.{self.date[1]:02d}"
         time_str = f"{self.time[0]:02d}:{self.time[1]:02d}"
+        
         return (f'[{self.level.name}] Тривога на станції {self.station.location.name}: '
                 f'{self.alert_type} (Дата: {date_str}, Час: {time_str})')
     
