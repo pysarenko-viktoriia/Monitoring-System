@@ -263,10 +263,11 @@ class MonitoringStation:
  
         groups = {}
         for m in recent:
-            key = type(m).__name__
-            groups.setdefault(key, []).append(m.quality_index())
- 
-        return {k: round(sum(v) / len(v), 2) for k, v in groups.items()}
+            name = type(m).__name__
+            if name not in groups:
+                 groups[name] = []
+            groups[name].append(m.quality_index())
+        return {name: round(sum(val) / len(val), 2) for name, val in groups.items()}
     
     def forecast_quality(self, sensor_type) -> tuple[str, str]:
         '''
