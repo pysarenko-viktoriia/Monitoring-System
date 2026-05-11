@@ -34,6 +34,7 @@ if __name__ == '__main__':
         '''Кожна станція, яка була створена вище, додається до системи моніторингу.
         В кожній станції виконується вимірювання індекса якості
         '''
+     
         for station in [station1, station2, station3, station4]:
             system.add_station(station)
         for meas in [air_critical, noise_critical, water_critical]:
@@ -44,8 +45,10 @@ if __name__ == '__main__':
             station3.take_measurement(meas)
         for meas in [air_info, water_info]:
             station4.take_measurement(meas)
+         
         '''Перевірка всіх станцій, визначення рівня небезпеки, створення звіту.
         Визначення середнього для кожного типу вимірювань в станції 1'''
+     
         alerts = system.check_all()
         report = system.report()
         average1 = station1.average([10, 20], [12, 0])
